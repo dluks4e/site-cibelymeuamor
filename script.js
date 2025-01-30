@@ -1,3 +1,8 @@
+// Configuração do particles.js
+particlesJS.load('particles-js', 'particles.json', function() {
+    console.log('Partículas carregadas!');
+});
+
 // Contagem regressiva para uma data especial
 const dataFinal = new Date(2024, 11, 25, 18, 0, 0); // Exemplo: 25 de dezembro de 2024, 18:00
 
