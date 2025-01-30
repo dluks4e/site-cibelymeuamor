@@ -1,30 +1,198 @@
-// Configuração do particles.js
-particlesJS.load('particles-js', 'particles.json', function() {
-    console.log('Partículas carregadas!');
+// Configuração do particles.js para corações
+particlesJS('particles-js', {
+    particles: {
+        number: {
+            value: 50,
+            density: {
+                enable: true,
+                value_area: 800
+            }
+        },
+        color: {
+            value: '#ff6f61' // Coração vermelho
+        },
+        shape: {
+            type: 'image',
+            image: {
+                src: 'https://www.freeiconspng.com/uploads/heart-png-31.png', // URL de um coração PNG
+                width: 100,
+                height: 100
+            }
+        },
+        opacity: {
+            value: 0.5,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false
+            }
+        },
+        size: {
+            value: 10,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 2,
+                size_min: 5,
+                sync: false
+            }
+        },
+        line_linked: {
+            enable: false
+        },
+        move: {
+            enable: true,
+            speed: 3,
+            direction: 'none',
+            random: true,
+            straight: false,
+            out_mode: 'out',
+            bounce: false,
+            attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200
+            }
+        }
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: {
+            onhover: {
+                enable: true,
+                mode: 'bubble'
+            },
+            onclick: {
+                enable: true,
+                mode: 'push'
+            },
+            resize: true
+        },
+        modes: {
+            bubble: {
+                distance: 200,
+                size: 10,
+                duration: 2,
+                opacity: 0.8,
+                speed: 3
+            },
+            push: {
+                particles_nb: 4
+            }
+        }
+    },
+    retina_detect: true
 });
 
-// Contagem regressiva para uma data especial
-const dataFinal = new Date(2024, 11, 25, 18, 0, 0); // Exemplo: 25 de dezembro de 2024, 18:00
+// Interação ao clicar nas fotos
+document.querySelectorAll('.foto').forEach(foto => {
+    foto.addEventListener('click', () => {
+        // Adiciona vários "Eu te amo" na tela
+        for (let i = 0; i < 10; i++) {
+            const amor = document.createElement('div');
+            amor.textContent = 'Eu te amo ❤️';
+            amor.style.position = 'absolute';
+            amor.style.left = `${Math.random() * window.innerWidth}px`;
+            amor.style.top = `${Math.random() * window.innerHeight}px`;
+            amor.style.color = '#ff6f61';
+            amor.style.fontSize = '24px';
+            amor.style.zIndex = 1000;
+            document.body.appendChild(amor);
 
-function atualizarContagem() {
-    const agora = new Date();
-    const diferenca = dataFinal - agora;
+            // Remove o texto após alguns segundos
+            setTimeout(() => {
+                amor.remove();
+            }, 3000);
+        }
 
-    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-    document.getElementById('contagem-regressiva').innerHTML = `
-        Faltam ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos!
-    `;
-}
-
-setInterval(atualizarContagem, 1000);
-atualizarContagem();
-
-// Formulário de mensagens
-document.getElementById('form-mensagem').addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Mensagem enviada com sucesso! ❤️');
+        // Adiciona partículas de corações
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ff6f61'
+                },
+                shape: {
+                    type: 'image',
+                    image: {
+                        src: 'https://www.freeiconspng.com/uploads/heart-png-31.png',
+                        width: 100,
+                        height: 100
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 10,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 5,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: false
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'bubble'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    bubble: {
+                        distance: 200,
+                        size: 10,
+                        duration: 2,
+                        opacity: 0.8,
+                        speed: 3
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    });
 });
