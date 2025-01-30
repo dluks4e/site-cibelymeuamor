@@ -1,5 +1,5 @@
 // Contagem regressiva para uma data especial
-const dataFinal = new Date(2025, 5, 17, 1, 0, 0); // Exemplo: 25 de dezembro de 2024, 18:00
+const dataFinal = new Date(2024, 11, 25, 18, 0, 0); // Exemplo: 25 de dezembro de 2024, 18:00
 
 function atualizarContagem() {
     const agora = new Date();
