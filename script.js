@@ -1,4 +1,4 @@
-// Defina a data final da contagem regressiva (ano, mês-1, dia, hora, minuto, segundo)
+// Contagem regressiva para uma data especial
 const dataFinal = new Date(2025, 5, 17, 1, 0, 0); // Exemplo: 25 de dezembro de 2024, 18:00
 
 function atualizarContagem() {
@@ -17,3 +17,9 @@ function atualizarContagem() {
 
 setInterval(atualizarContagem, 1000);
 atualizarContagem();
+
+// Formulário de mensagens
+document.getElementById('form-mensagem').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Mensagem enviada com sucesso! ❤️');
+});
